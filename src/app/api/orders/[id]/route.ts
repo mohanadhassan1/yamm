@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { RefundOrder } from '@/models';
 
 const dbPath = path.join(process.cwd(), 'src/database/db.json');
 
@@ -9,7 +10,7 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
     const data = fs.readFileSync(dbPath, 'utf-8');
     const jsonData = JSON.parse(data);
     
-    const order = jsonData.orders.find((order: any) => order.id === params.id);
+    const order = jsonData.orders.find((order: RefundOrder) => order.id === params.id);
     
     if (!order) {
       return NextResponse.json(

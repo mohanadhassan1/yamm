@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { RefundOrder } from '@/models';
 
 const dbPath = path.join(process.cwd(), 'src/database/db.json');
 
@@ -34,7 +35,7 @@ export async function PATCH(req: Request) {
     const data = fs.readFileSync(dbPath, 'utf-8');
     const jsonData = JSON.parse(data);
 
-    const orderIndex = jsonData.orders.findIndex((order: any) => order.id === id);
+    const orderIndex = jsonData.orders.findIndex((order: RefundOrder) => order.id === id);
 
     if (orderIndex === -1) {
       return NextResponse.json({ error: 'Order not found' }, { status: 404 });
