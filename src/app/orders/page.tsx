@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import { Table } from '../components/Table';
+import Loading from '@/app/loading'
 import { RefundOrder, Decision } from '@/models';
 import { useToast } from "@/hooks/use-toast"
 
@@ -12,10 +13,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ExternalLink } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
 
-export default function Dashboard() {
+export default function Orders() {
   const [orders, setOrders] = useState<RefundOrder[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -26,13 +29,13 @@ export default function Dashboard() {
   const fetchOrders = async (page: number) => {
     try {
       setLoading(true);
-      const response = await fetch(`/api/orders?page=${page}&per_page=5`);
+      const response = await fetch(`/api/orders?page=${page}&per_page=15`);
       const data = await response.json();
-      console.log('data', data);
-      
+
       setOrders(data.orders);
-      setTotalPages(Math.ceil(data.total / 5));
+      setTotalPages(Math.ceil(data.total / 15));
     } catch (error) {
+      console.error(error)
       toast({
         title: "Error",
         description: "Failed to fetch orders",
@@ -61,6 +64,7 @@ export default function Dashboard() {
         description: `Order status has been ${status ? 'activated' : 'deactivated'}.`,
       });
     } catch (error) {
+      console.error(error)
       toast({
         title: "Error",
         description: "Failed to update status",
@@ -83,6 +87,7 @@ export default function Dashboard() {
         description: `Order decision has been updated to ${decision}.`,
       });
     } catch (error) {
+      console.error(error)
       toast({
         title: "Error",
         description: "Failed to update decision",
@@ -99,7 +104,22 @@ export default function Dashboard() {
       key: 'store_logo',
       header: 'Logo',
       render: (row: RefundOrder) => (
-        <img src={row.store_logo} alt={row.store_name} className="w-8 h-8 rounded-full" />
+        <Image src={row.store_logo} alt={row.store_name} width={500} height={500} className="w-8 h-8 rounded-full" />
+      ),
+    },
+    {
+      key: 'store_url',
+      header: 'Store URL',
+      render: (row: RefundOrder) => (
+        <Link 
+          href={row.store_url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center text-blue-600 hover:text-blue-800"
+        >
+          Visit Store
+          <ExternalLink className="ml-1 h-4 w-4" />
+        </Link>
       ),
     },
     {
@@ -162,9 +182,7 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-      </div>
+      <Loading />
     );
   }
   

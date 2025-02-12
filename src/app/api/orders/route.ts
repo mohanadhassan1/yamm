@@ -11,7 +11,7 @@ export async function GET(req: Request) {
 
     const { searchParams } = new URL(req.url);
     const page = Number(searchParams.get('page') || 1);
-    const per_page = Number(searchParams.get('per_page') || 5);
+    const per_page = Number(searchParams.get('per_page') || 15);
 
     const startIndex = (page - 1) * per_page;
     const endIndex = startIndex + per_page;
@@ -20,6 +20,7 @@ export async function GET(req: Request) {
 
     return NextResponse.json({ orders, total: jsonData.orders.length });
   } catch (error) {
+    console.error(error)
     return NextResponse.json({ error: 'Failed to load data' }, { status: 500 });
   }
 }

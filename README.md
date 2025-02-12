@@ -35,7 +35,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-npm install @radix-ui/react-dropdown-menu @radix-ui/react-switch lucide-react
+npm install @radix-ui/react-dropdown-menu @radix-ui/react-switch npm i lucide-react
 
 npx shadcn@latest init
-npx shadcn@latest add table switch button dropdown-menu toast
+npx shadcn@latest add table switch button dropdown-menu toast card

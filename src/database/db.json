@@ -4,7 +4,7 @@
       "id": "1",
       "reason": "Wrong size",
       "store_name": "Fashion Store",
-      "store_logo": "/store1-logo.png",
+      "store_logo": "/images/logo1.jpg",
       "store_url": "https://store1.com",
       "amount": 99.99,
       "active": true,
@@ -28,7 +28,7 @@
       "id": "2",
       "reason": "Defective product",
       "store_name": "Tech World",
-      "store_logo": "/store2-logo.png",
+      "store_logo": "/images/logo1.jpg",
       "store_url": "https://store2.com",
       "amount": 899.99,
       "active": true,
@@ -46,7 +46,7 @@
       "id": "3",
       "reason": "Item not as described",
       "store_name": "Home Essentials",
-      "store_logo": "/store3-logo.png",
+      "store_logo": "/images/logo1.jpg",
       "store_url": "https://store3.com",
       "amount": 149.99,
       "active": true,
@@ -64,7 +64,7 @@
       "id": "4",
       "reason": "Wrong color received",
       "store_name": "Decor Plus",
-      "store_logo": "/store4-logo.png",
+      "store_logo": "/images/logo1.jpg",
       "store_url": "https://store4.com",
       "amount": 299.97,
       "active": false,
@@ -82,7 +82,7 @@
       "id": "5",
       "reason": "Missing parts",
       "store_name": "DIY Hardware",
-      "store_logo": "/store5-logo.png",
+      "store_logo": "/images/logo1.jpg",
       "store_url": "https://store5.com",
       "amount": 245.98,
       "active": true,
@@ -106,7 +106,7 @@
       "id": "6",
       "reason": "Late delivery",
       "store_name": "Fresh Foods",
-      "store_logo": "/store6-logo.png",
+      "store_logo": "/images/logo1.jpg",
       "store_url": "https://store6.com",
       "amount": 79.95,
       "active": true,
@@ -124,7 +124,7 @@
       "id": "7",
       "reason": "Double charged",
       "store_name": "Sports Elite",
-      "store_logo": "/store7-logo.png",
+      "store_logo": "/images/logo1.jpg",
       "store_url": "https://store7.com",
       "amount": 159.98,
       "active": true,
@@ -142,7 +142,7 @@
       "id": "8",
       "reason": "Quality not as expected",
       "store_name": "Luxury Brands",
-      "store_logo": "/store8-logo.png",
+      "store_logo": "/images/logo1.jpg",
       "store_url": "https://store8.com",
       "amount": 1299.99,
       "active": true,
@@ -153,6 +153,222 @@
           "id": "item10",
           "price": 1299.99,
           "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "reason": "Damaged in transit",
+      "store_name": "Electronics Hub",
+      "store_logo": "/images/logo1.jpg",
+      "store_url": "https://store9.com",
+      "amount": 549.99,
+      "active": true,
+      "decision": null,
+      "items": [
+        {
+          "name": "Smart TV",
+          "id": "item11",
+          "price": 549.99,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "reason": "Wrong item shipped",
+      "store_name": "Garden World",
+      "store_logo": "/images/logo1.jpg",
+      "store_url": "https://store10.com",
+      "amount": 89.97,
+      "active": true,
+      "decision": "accept",
+      "items": [
+        {
+          "name": "Plant Pots",
+          "id": "item12",
+          "price": 29.99,
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "reason": "Size doesn't match description",
+      "store_name": "Kids Zone",
+      "store_logo": "/images/logo1.jpg",
+      "store_url": "https://store11.com",
+      "amount": 129.99,
+      "active": true,
+      "decision": null,
+      "items": [
+        {
+          "name": "Children's Bicycle",
+          "id": "item13",
+          "price": 129.99,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "reason": "Color variation",
+      "store_name": "Art Supplies Co",
+      "store_logo": "/images/logo1.jpg",
+      "store_url": "https://store12.com",
+      "amount": 199.95,
+      "active": true,
+      "decision": "escalate",
+      "items": [
+        {
+          "name": "Professional Paint Set",
+          "id": "item14",
+          "price": 199.95,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "reason": "Expired product",
+      "store_name": "Beauty Box",
+      "store_logo": "/images/logo1.jpg",
+      "store_url": "https://store13.com",
+      "amount": 159.96,
+      "active": true,
+      "decision": "accept",
+      "items": [
+        {
+          "name": "Skincare Set",
+          "id": "item15",
+          "price": 79.98,
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "reason": "Missing accessories",
+      "store_name": "Camera Shop",
+      "store_logo": "/images/logo1.jpg",
+      "store_url": "https://store14.com",
+      "amount": 799.99,
+      "active": true,
+      "decision": null,
+      "items": [
+        {
+          "name": "DSLR Camera",
+          "id": "item16",
+          "price": 799.99,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "reason": "Incorrect shipping address",
+      "store_name": "Book Haven",
+      "store_logo": "/images/logo1.jpg",
+      "store_url": "https://store15.com",
+      "amount": 124.95,
+      "active": false,
+      "decision": "reject",
+      "items": [
+        {
+          "name": "Book Collection",
+          "id": "item17",
+          "price": 24.99,
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "reason": "Package never arrived",
+      "store_name": "Music Store",
+      "store_logo": "/images/logo1.jpg",
+      "store_url": "https://store16.com",
+      "amount": 349.99,
+      "active": true,
+      "decision": "escalate",
+      "items": [
+        {
+          "name": "Guitar",
+          "id": "item18",
+          "price": 349.99,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "reason": "Defective electronics",
+      "store_name": "Gaming Paradise",
+      "store_logo": "/images/logo1.jpg",
+      "store_url": "https://store17.com",
+      "amount": 459.99,
+      "active": true,
+      "decision": null,
+      "items": [
+        {
+          "name": "Gaming Console",
+          "id": "item19",
+          "price": 459.99,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "reason": "Fabric quality issues",
+      "store_name": "Bedding Plus",
+      "store_logo": "/images/logo1.jpg",
+      "store_url": "https://store18.com",
+      "amount": 239.97,
+      "active": true,
+      "decision": "accept",
+      "items": [
+        {
+          "name": "Bed Sheets Set",
+          "id": "item20",
+          "price": 79.99,
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "reason": "Wrong specifications",
+      "store_name": "Office Supplies",
+      "store_logo": "/images/logo1.jpg",
+      "store_url": "https://store19.com",
+      "amount": 599.99,
+      "active": true,
+      "decision": null,
+      "items": [
+        {
+          "name": "Office Chair",
+          "id": "item21",
+          "price": 599.99,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "reason": "Sizing chart incorrect",
+      "store_name": "Shoe Empire",
+      "store_logo": "/images/logo1.jpg",
+      "store_url": "https://store20.com",
+      "amount": 259.97,
+      "active": true,
+      "decision": "accept",
+      "items": [
+        {
+          "name": "Athletic Shoes",
+          "id": "item22",
+          "price": 86.99,
+          "quantity": 3
         }
       ]
     }
