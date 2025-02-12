@@ -1,18 +1,18 @@
 'use client'
 
-import { useEffect, useState, use } from 'react'
+import { useEffect, useState } from 'react'
 import { useToast } from "@/hooks/use-toast"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
-import { useRouter } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { RefundOrder } from '@/models';
 import Loading from '@/app/loading'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function OrderDetails({ params }: { params: Promise<{ id: string }> }) {
-  const resolvedParams = use(params)
+export default function OrderDetails() {
+  const { id } = useParams();
   const [order, setOrder] = useState<RefundOrder | null>(null)
   const [loading, setLoading] = useState(true)
   const { toast } = useToast()
@@ -22,7 +22,7 @@ export default function OrderDetails({ params }: { params: Promise<{ id: string 
     const fetchOrder = async () => {
       try {
         setLoading(true)
-        const response = await fetch(`/api/orders/${resolvedParams.id}`)
+        const response = await fetch(`/api/orders/${id}`)
         if (!response.ok) {
           throw new Error('Order not found')
         }
@@ -41,7 +41,7 @@ export default function OrderDetails({ params }: { params: Promise<{ id: string 
     }
 
     fetchOrder()
-  }, [resolvedParams.id, toast, router])
+  }, [id, toast])
 
   if (loading) {
     return (

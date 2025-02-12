@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Table } from '../components/Table';
 import Loading from '@/app/loading'
 import { RefundOrder, Decision } from '@/models';
@@ -26,7 +26,7 @@ export default function Orders() {
   const { toast } = useToast();
   const router = useRouter();
 
-  const fetchOrders = async (page: number) => {
+  const fetchOrders = useCallback(async (page: number) => {
     try {
       setLoading(true);
       const response = await fetch(`/api/orders?page=${page}&per_page=15`);
@@ -44,11 +44,11 @@ export default function Orders() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
 
   useEffect(() => {
     fetchOrders(currentPage);
-  }, [currentPage]);
+  }, [fetchOrders, currentPage]);
 
   const handleStatusChange = async (id: string, status: boolean) => {
     try {

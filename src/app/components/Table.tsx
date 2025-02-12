@@ -38,7 +38,7 @@ export function Table<T extends { id: string }>({
         <TableHeader>
           <TableRow>
             {columns.map((column) => (
-              <TableHead key={column.key.toString()}>{column.header}</TableHead>
+              <TableHead key={String(column.key)}>{column.header}</TableHead>
             ))}
           </TableRow>
         </TableHeader>
@@ -46,7 +46,7 @@ export function Table<T extends { id: string }>({
           {data.map((row) => (
             <TableRow key={row.id}>
               {columns.map((column) => (
-                <TableCell key={`${row.id}-${column.key}`}>
+                <TableCell key={`${row.id}-${String(column.key)}`}>
                   {column.render ? column.render(row) : String(row[column.key as keyof T])}
                 </TableCell>
               ))}
