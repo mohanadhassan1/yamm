@@ -1,0 +1,160 @@
+{
+  "orders": [
+    {
+      "id": "1",
+      "reason": "Wrong size",
+      "store_name": "Fashion Store",
+      "store_logo": "/store1-logo.png",
+      "store_url": "https://store1.com",
+      "amount": 99.99,
+      "active": true,
+      "decision": null,
+      "items": [
+        {
+          "name": "T-Shirt",
+          "id": "item1",
+          "price": 29.99,
+          "quantity": 2
+        },
+        {
+          "name": "Jeans",
+          "id": "item2",
+          "price": 39.99,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "reason": "Defective product",
+      "store_name": "Tech World",
+      "store_logo": "/store2-logo.png",
+      "store_url": "https://store2.com",
+      "amount": 899.99,
+      "active": true,
+      "decision": null,
+      "items": [
+        {
+          "name": "Laptop",
+          "id": "item3",
+          "price": 899.99,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "reason": "Item not as described",
+      "store_name": "Home Essentials",
+      "store_logo": "/store3-logo.png",
+      "store_url": "https://store3.com",
+      "amount": 149.99,
+      "active": true,
+      "decision": "accept",
+      "items": [
+        {
+          "name": "Coffee Maker",
+          "id": "item4",
+          "price": 149.99,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "reason": "Wrong color received",
+      "store_name": "Decor Plus",
+      "store_logo": "/store4-logo.png",
+      "store_url": "https://store4.com",
+      "amount": 299.97,
+      "active": false,
+      "decision": "reject",
+      "items": [
+        {
+          "name": "Curtains",
+          "id": "item5",
+          "price": 99.99,
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "reason": "Missing parts",
+      "store_name": "DIY Hardware",
+      "store_logo": "/store5-logo.png",
+      "store_url": "https://store5.com",
+      "amount": 245.98,
+      "active": true,
+      "decision": "escalate",
+      "items": [
+        {
+          "name": "Power Tool Set",
+          "id": "item6",
+          "price": 199.99,
+          "quantity": 1
+        },
+        {
+          "name": "Tool Box",
+          "id": "item7",
+          "price": 45.99,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "reason": "Late delivery",
+      "store_name": "Fresh Foods",
+      "store_logo": "/store6-logo.png",
+      "store_url": "https://store6.com",
+      "amount": 79.95,
+      "active": true,
+      "decision": null,
+      "items": [
+        {
+          "name": "Grocery Box",
+          "id": "item8",
+          "price": 79.95,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "reason": "Double charged",
+      "store_name": "Sports Elite",
+      "store_logo": "/store7-logo.png",
+      "store_url": "https://store7.com",
+      "amount": 159.98,
+      "active": true,
+      "decision": "accept",
+      "items": [
+        {
+          "name": "Running Shoes",
+          "id": "item9",
+          "price": 79.99,
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "reason": "Quality not as expected",
+      "store_name": "Luxury Brands",
+      "store_logo": "/store8-logo.png",
+      "store_url": "https://store8.com",
+      "amount": 1299.99,
+      "active": true,
+      "decision": null,
+      "items": [
+        {
+          "name": "Designer Bag",
+          "id": "item10",
+          "price": 1299.99,
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}
