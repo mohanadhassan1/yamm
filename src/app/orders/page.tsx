@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { Table } from '../components/Table';
 import { RefundOrder, Decision } from '@/models';
-// import { useToast } from "@/components/ui/use-toast"
 import { useToast } from "@/hooks/use-toast"
 
 import { Button } from "@/components/ui/button"
@@ -94,7 +93,8 @@ export default function Dashboard() {
 
   const columns = [
     { key: 'id', header: 'ID' },
-    { key: 'store_name', header: 'Store' },
+    { key: 'reason', header: 'Reason' },
+    { key: 'store_name', header: 'Store Name' },
     {
       key: 'store_logo',
       header: 'Logo',
@@ -102,16 +102,20 @@ export default function Dashboard() {
         <img src={row.store_logo} alt={row.store_name} className="w-8 h-8 rounded-full" />
       ),
     },
-    { key: 'reason', header: 'Reason' },
     {
       key: 'amount',
       header: 'Amount',
       render: (row: RefundOrder) => `$${row.amount.toFixed(2)}`,
     },
     {
-      key: 'items',
-      header: 'Items',
-      render: (row: RefundOrder) => row.items.length,
+      key: 'active',
+      header: 'Active',
+      render: (row: RefundOrder) => (
+        <Switch
+          checked={row.active}
+          onCheckedChange={(checked) => handleStatusChange(row.id, checked)}
+        />
+      ),
     },
     {
       key: 'decision',
@@ -137,14 +141,9 @@ export default function Dashboard() {
       ),
     },
     {
-      key: 'active',
-      header: 'Status',
-      render: (row: RefundOrder) => (
-        <Switch
-          checked={row.active}
-          onCheckedChange={(checked) => handleStatusChange(row.id, checked)}
-        />
-      ),
+      key: 'items',
+      header: 'Items',
+      render: (row: RefundOrder) => row.items.length,
     },
     {
       key: 'actions',
