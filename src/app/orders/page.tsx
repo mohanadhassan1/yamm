@@ -52,12 +52,21 @@ export default function Orders() {
 
   const handleStatusChange = async (id: string, status: boolean) => {
     try {
-      await fetch(`/api/orders/${id}/status`, {
+      const response = await fetch(`/api/orders?id=${id}`, {
         method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({ active: status }),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to update status');
+      }
+
+      const updatedOrder = await response.json();
       setOrders(orders.map(order => 
-        order.id === id ? { ...order, active: status } : order
+        order.id === id ? { ...order, active: updatedOrder.active } : order
       ));
       toast({
         title: "Success",
@@ -75,12 +84,21 @@ export default function Orders() {
 
   const handleDecisionChange = async (id: string, decision: Decision) => {
     try {
-      await fetch(`/api/orders/${id}/decision`, {
+      const response = await fetch(`/api/orders?id=${id}`, {
         method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({ decision }),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to update decision');
+      }
+
+      const updatedOrder = await response.json();
       setOrders(orders.map(order => 
-        order.id === id ? { ...order, decision } : order
+        order.id === id ? { ...order, decision: updatedOrder.decision } : order
       ));
       toast({
         title: "Success",

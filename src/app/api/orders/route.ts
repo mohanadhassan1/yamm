@@ -24,3 +24,35 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: 'Failed to load data' }, { status: 500 });
   }
 }
+
+export async function PATCH(req: Request) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const id = searchParams.get('id');
+    const { active, decision } = await req.json();
+
+    const data = fs.readFileSync(dbPath, 'utf-8');
+    const jsonData = JSON.parse(data);
+
+    const orderIndex = jsonData.orders.findIndex((order: any) => order.id === id);
+
+    if (orderIndex === -1) {
+      return NextResponse.json({ error: 'Order not found' }, { status: 404 });
+    }
+
+    if (active !== undefined) {
+      jsonData.orders[orderIndex].active = active;
+    }
+
+    if (decision !== undefined) {
+      jsonData.orders[orderIndex].decision = decision;
+    }
+
+    fs.writeFileSync(dbPath, JSON.stringify(jsonData, null, 2));
+
+    return NextResponse.json(jsonData.orders[orderIndex]);
+  } catch (error) {
+    console.error(error)
+    return NextResponse.json({ error: 'Failed to update order' }, { status: 500 });
+  }
+}
